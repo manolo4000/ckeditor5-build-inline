@@ -4,6 +4,7 @@
  */
 import InlineEditor from '@ckeditor/ckeditor5-editor-inline/src/inlineeditor.js';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
+import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage.js';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
 import CKFinderUploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter.js';
@@ -20,6 +21,7 @@ import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload.js';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent.js';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic.js';
 import Link from '@ckeditor/ckeditor5-link/src/link.js';
+import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage.js';
 import List from '@ckeditor/ckeditor5-list/src/list.js';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed.js';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph.js';
@@ -34,6 +36,7 @@ class Editor extends InlineEditor {}
 // Plugins to include in the build.
 Editor.builtinPlugins = [
 	Autoformat,
+	AutoImage,
 	BlockQuote,
 	Bold,
 	CKFinderUploadAdapter,
@@ -50,6 +53,7 @@ Editor.builtinPlugins = [
 	Indent,
 	Italic,
 	Link,
+	LinkImage,
 	List,
 	MediaEmbed,
 	Paragraph,
@@ -73,24 +77,25 @@ Editor.defaultConfig = {
 			'bulletedList',
 			'numberedList',
 			'|',
-			'indent',
 			'outdent',
+			'indent',
 			'|',
 			'imageInsert',
 			'blockQuote',
-			'mediaEmbed',
 			'insertTable',
+			'mediaEmbed',
 			'undo',
 			'redo'
 		]
 	},
-	language: 'en',
+	language: 'es',
 	image: {
 		toolbar: [
 			'imageTextAlternative',
 			'imageStyle:inline',
 			'imageStyle:block',
-			'imageStyle:side'
+			'imageStyle:side',
+			'linkImage'
 		]
 	},
 	table: {

@@ -42,6 +42,8 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-core": "^31.1.0",
-    "@ckeditor/ckeditor5-ui": "^31.1.0"
+    "@ckeditor/ckeditor5-ui": "^31.1.0",
+    "@ckeditor/ckeditor5-upload": "^31.1.0",
+    "@ckeditor/ckeditor5-widget": "^31.1.0"
   }
 }

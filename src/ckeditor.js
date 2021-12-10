@@ -28,6 +28,7 @@
  import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed.js';
  import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph.js';
  import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice.js';
+ import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter';
  import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript.js';
  import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript.js';
  import Table from '@ckeditor/ckeditor5-table/src/table.js';
@@ -85,7 +86,6 @@ InlineEditor.builtinPlugins = [
 	ImageBlock,
 	Bold,
 	CKFinder,
-	CKFinderUploadAdapter,
 	CloudServices,
 	Essentials,
 	Heading,
@@ -103,6 +103,7 @@ InlineEditor.builtinPlugins = [
 	MediaEmbed,
 	Paragraph,
 	PasteFromOffice,
+	SimpleUploadAdapter,
 	Subscript,
 	Superscript,
 	Table,

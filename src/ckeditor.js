@@ -129,6 +129,8 @@ InlineEditor.defaultConfig = {
 			'outdent',
 			'|',
 			'imageInsert',
+			'|',
+			'imageUpload',
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',

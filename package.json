@@ -1,132 +1,47 @@
 {
-  "_from": "@ckeditor/ckeditor5-build-inline",
-  "_id": "@ckeditor/ckeditor5-build-inline@18.0.0",
-  "_inBundle": false,
-  "_integrity": "sha512-95ibetASRmpOgG8o0bC4H2PFq4sgcBfnSOj5uQ/riAZ3yET8geIW1j2VWQnMCqg2yQGkp9XelhnTSvEcd7iZqg==",
-  "_location": "/@ckeditor/ckeditor5-build-inline",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "@ckeditor/ckeditor5-build-inline",
-    "name": "@ckeditor/ckeditor5-build-inline",
-    "escapedName": "@ckeditor%2fckeditor5-build-inline",
-    "scope": "@ckeditor",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/@ckeditor/ckeditor5-build-inline/-/ckeditor5-build-inline-18.0.0.tgz",
-  "_shasum": "b5561975fbf84774c454bb4e50969f87007cc6e8",
-  "_spec": "@ckeditor/ckeditor5-build-inline",
-  "_where": "/home/omnigroupit/workspace/angular/hub-contenidos-front",
-  "author": {
-    "name": "CKSource",
-    "url": "http://cksource.com/"
-  },
-  "bugs": {
-    "url": "https://github.com/ckeditor/ckeditor5/issues"
-  },
-  "bundleDependencies": false,
-  "deprecated": false,
-  "description": "The inline editor build of CKEditor 5 – the best browser-based rich text editor.",
-  "devDependencies": {
-    "@ckeditor/ckeditor5-adapter-ckfinder": "^18.0.0",
-    "@ckeditor/ckeditor5-autoformat": "^18.0.0",
-    "@ckeditor/ckeditor5-basic-styles": "^18.0.0",
-    "@ckeditor/ckeditor5-block-quote": "^18.0.0",
-    "@ckeditor/ckeditor5-ckfinder": "^18.0.0",
-    "@ckeditor/ckeditor5-core": "^18.0.0",
-    "@ckeditor/ckeditor5-dev-utils": "^12.0.0",
-    "@ckeditor/ckeditor5-dev-webpack-plugin": "^8.0.0",
-    "@ckeditor/ckeditor5-easy-image": "^18.0.0",
-    "@ckeditor/ckeditor5-editor-inline": "^18.0.0",
-    "@ckeditor/ckeditor5-essentials": "^18.0.0",
-    "@ckeditor/ckeditor5-heading": "^18.0.0",
-    "@ckeditor/ckeditor5-image": "^18.0.0",
-    "@ckeditor/ckeditor5-indent": "^18.0.0",
-    "@ckeditor/ckeditor5-inspector": "^2.2.0",
-    "@ckeditor/ckeditor5-link": "^18.0.0",
-    "@ckeditor/ckeditor5-list": "^18.0.0",
-    "@ckeditor/ckeditor5-media-embed": "^18.0.0",
-    "@ckeditor/ckeditor5-paragraph": "^18.0.0",
-    "@ckeditor/ckeditor5-paste-from-office": "^18.0.0",
-    "@ckeditor/ckeditor5-table": "^18.0.0",
-    "@ckeditor/ckeditor5-theme-lark": "^18.0.0",
-    "@ckeditor/ckeditor5-typing": "^18.0.0",
-    "eslint": "^5.5.0",
-    "eslint-config-ckeditor5": "^2.0.0",
-    "husky": "^1.3.1",
-    "lint-staged": "^7.0.0",
-    "postcss-loader": "^3.0.0",
-    "raw-loader": "^3.1.0",
-    "style-loader": "^1.0.0",
-    "stylelint": "^11.1.1",
-    "stylelint-config-ckeditor5": "^1.0.0",
-    "terser-webpack-plugin": "^2.2.1",
-    "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6"
-  },
-  "engines": {
-    "node": ">=8.0.0",
-    "npm": ">=5.7.1"
-  },
-  "eslintIgnore": [
-    "build/**",
-    "packages/**"
-  ],
-  "files": [
-    "build"
-  ],
-  "homepage": "https://ckeditor.com/ckeditor-5",
-  "husky": {
-    "hooks": {}
-  },
-  "keywords": [
-    "ckeditor5-build",
-    "ckeditor",
-    "ckeditor5",
-    "ckeditor 5",
-    "wysiwyg",
-    "rich text",
-    "editor",
-    "html",
-    "contentEditable",
-    "editing",
-    "operational transformation",
-    "ot",
-    "collaboration",
-    "collaborative",
-    "real-time",
-    "framework"
-  ],
-  "license": "GPL-2.0-or-later",
-  "lint-staged": {
-    "**/*.js": [
-      "eslint --quiet"
-    ],
-    "**/*.css": [
-      "stylelint --quiet --allow-empty-input"
-    ]
-  },
+  "name": "ckeditor5-custom-build",
+  "author": "CKSource",
+  "description": "A custom CKEditor 5 build made by the CKEditor 5 online builder.",
+  "version": "0.0.1",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "private": true,
   "main": "./build/ckeditor.js",
-  "name": "@ckeditor/ckeditor5-build-inline",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ckeditor/ckeditor5-build-inline.git"
+  "devDependencies": {
+    "@ckeditor/ckeditor5-adapter-ckfinder": "^31.1.0",
+    "@ckeditor/ckeditor5-autoformat": "^31.1.0",
+    "@ckeditor/ckeditor5-basic-styles": "^31.1.0",
+    "@ckeditor/ckeditor5-block-quote": "^31.1.0",
+    "@ckeditor/ckeditor5-ckfinder": "^31.1.0",
+    "@ckeditor/ckeditor5-cloud-services": "^31.1.0",
+    "@ckeditor/ckeditor5-dev-utils": "^25.4.5",
+    "@ckeditor/ckeditor5-dev-webpack-plugin": "^25.4.5",
+    "@ckeditor/ckeditor5-editor-inline": "^31.1.0",
+    "@ckeditor/ckeditor5-essentials": "^31.1.0",
+    "@ckeditor/ckeditor5-heading": "^31.1.0",
+    "@ckeditor/ckeditor5-image": "^31.1.0",
+    "@ckeditor/ckeditor5-indent": "^31.1.0",
+    "@ckeditor/ckeditor5-link": "^31.1.0",
+    "@ckeditor/ckeditor5-list": "^31.1.0",
+    "@ckeditor/ckeditor5-media-embed": "^31.1.0",
+    "@ckeditor/ckeditor5-paragraph": "^31.1.0",
+    "@ckeditor/ckeditor5-paste-from-office": "^31.1.0",
+    "@ckeditor/ckeditor5-table": "^31.1.0",
+    "@ckeditor/ckeditor5-theme-lark": "^31.1.0",
+    "@ckeditor/ckeditor5-typing": "^31.1.0",
+    "css-loader": "^5.2.7",
+    "postcss": "^8.4.4",
+    "postcss-loader": "^4.3.0",
+    "raw-loader": "^4.0.2",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^4.2.3",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.9.1"
   },
   "scripts": {
-    "build": "webpack --mode production",
-    "lint": "eslint --quiet '**/*.js'",
-    "preversion": "npm run build; if [ -n \"$(git status src/ckeditor.js build/ --porcelain)\" ]; then git add -u src/ckeditor.js build/ && git commit -m 'Internal: Build.'; fi",
-    "stylelint": "stylelint --quiet --allow-empty-input 'theme/**/*.css' 'docs/**/*.css'"
+    "build": "webpack --mode production"
   },
-  "version": "18.0.0",
   "dependencies": {
-    "@ckeditor/ckeditor5-upload": "^18.0.0"
+    "@ckeditor/ckeditor5-core": "^31.1.0",
+    "@ckeditor/ckeditor5-ui": "^31.1.0"
   }
 }

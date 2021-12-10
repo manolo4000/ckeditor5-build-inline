@@ -7,6 +7,7 @@
  import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage.js';
  import AutoLink from '@ckeditor/ckeditor5-link/src/autolink.js';
  import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
+ import ImageBlock from '@ckeditor/ckeditor5-image/src/imageblock.js';
  import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
  import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder.js';
  import CKFinderUploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter.js';
@@ -81,6 +82,7 @@ InlineEditor.builtinPlugins = [
 	AutoImage,
 	AutoLink,
 	BlockQuote,
+	ImageBlock,
 	Bold,
 	CKFinder,
 	CKFinderUploadAdapter,

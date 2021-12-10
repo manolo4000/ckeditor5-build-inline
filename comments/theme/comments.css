@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+ */
+
+:root {
+	--ck-comments-marker-yellow: hsl(60, 97%, 73%);
+	--ck-comments-marker-green: hsl(120, 93%, 68%);
+	--ck-comments-marker-pink: hsl(345, 96%, 73%);
+	--ck-comments-marker-blue: hsl(201, 97%, 72%);
+	--ck-comments-pen-red: hsl(0, 85%, 49%);
+	--ck-comments-pen-green: hsl(112, 100%, 27%);
+}
+
+@define-mixin comments-marker-color $color {
+	.ck-content .marker-$color {
+		background-color: var(--ck-comments-marker-$color);
+	}
+}
+
+@define-mixin comments-pen-color $color {
+	.ck-content .pen-$color {
+		color: var(--ck-comments-pen-$color);
+
+		/* Override default yellow background of `<mark>` from user agent stylesheet */
+		background-color: transparent;
+	}
+}
+
+@mixin comments-marker-color yellow;
+@mixin comments-marker-color green;
+@mixin comments-marker-color pink;
+@mixin comments-marker-color blue;
+
+@mixin comments-pen-color red;
+@mixin comments-pen-color green;

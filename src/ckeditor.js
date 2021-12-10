@@ -131,7 +131,6 @@ InlineEditor.defaultConfig = {
 			'|',
 			'imageInsert',
 			'|',
-			'imageUpload',
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',

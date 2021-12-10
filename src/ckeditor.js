@@ -7,12 +7,10 @@ import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
 import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage.js';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
-import CKFinderUploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter.js';
 import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices.js';
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading.js';
 import Image from '@ckeditor/ckeditor5-image/src/image.js';
-import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption.js';
 import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert.js';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle.js';
@@ -39,12 +37,10 @@ Editor.builtinPlugins = [
 	AutoImage,
 	BlockQuote,
 	Bold,
-	CKFinderUploadAdapter,
 	CloudServices,
 	Essentials,
 	Heading,
 	Image,
-	ImageCaption,
 	ImageInsert,
 	ImageResize,
 	ImageStyle,
@@ -77,8 +73,8 @@ Editor.defaultConfig = {
 			'bulletedList',
 			'numberedList',
 			'|',
-			'outdent',
 			'indent',
+			'outdent',
 			'|',
 			'imageInsert',
 			'blockQuote',

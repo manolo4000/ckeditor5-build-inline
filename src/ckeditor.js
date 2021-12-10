@@ -9,8 +9,8 @@
  import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
  import ImageBlock from '@ckeditor/ckeditor5-image/src/imageblock.js';
  import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
- //import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder.js';
- //import CKFinderUploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter.js';
+ import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder.js';
+ import CKFinderUploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter.js';
  import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices.js';
  import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
  import Heading from '@ckeditor/ckeditor5-heading/src/heading.js';
@@ -85,6 +85,8 @@ InlineEditor.builtinPlugins = [
 	BlockQuote,
 	ImageBlock,
 	Bold,
+	CKFinder,
+	CKFinderUploadAdapter,
 	CloudServices,
 	Essentials,
 	Heading,
@@ -130,7 +132,7 @@ InlineEditor.defaultConfig = {
 			'outdent',
 			'|',
 			'imageInsert',
-			'|',
+			'imageUpload',
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',

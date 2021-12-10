@@ -34,7 +34,7 @@
  import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
  import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
 
-import ImageLink2 from '../ckeditor5-image/src/imagelink2';
+//import ImageLink2 from '../ckeditor5-image/src/imagelink2';
 import Crossreference from '../crossreference/crossreference';
 import Comments from '../comments/comments';
 
@@ -108,7 +108,6 @@ InlineEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	TextTransformation,
-	ImageLink2,
 	Crossreference,
 	Comments
 ];
@@ -150,7 +149,7 @@ InlineEditor.defaultConfig = {
 			'imageStyle:block',
 			'imageStyle:side',
 			'|',
-			'imageLink2'
+			'linkImage'
 		]
 	},
 	table: {

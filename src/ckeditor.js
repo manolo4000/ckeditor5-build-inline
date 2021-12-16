@@ -14,6 +14,7 @@
  import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices.js';
  import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
  import Heading from '@ckeditor/ckeditor5-heading/src/heading.js';
+ import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed.js';
  import Image from '@ckeditor/ckeditor5-image/src/image.js';
  import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert.js';
  import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
@@ -90,6 +91,7 @@ InlineEditor.builtinPlugins = [
 	CloudServices,
 	Essentials,
 	Heading,
+	HtmlEmbed,
 	Image,
 	ImageInsert,
 	ImageResize,
@@ -131,6 +133,7 @@ InlineEditor.defaultConfig = {
 			'indent',
 			'outdent',
 			'|',
+			'htmlEmbed',
 			'imageInsert',
 			'imageUpload',
 			'blockQuote',

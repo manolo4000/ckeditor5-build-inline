@@ -85,10 +85,10 @@ export default class CommentsEditing extends Plugin {
 				const viewElement = conversionApi.mapper.toViewElement( element );
 
 				// Remove current <div> element contents.
-				conversionApi.writer.remove( viewElement.getChild( 0 ) );
+				conversionApi.viewWriter.remove( viewElement.getChild( 0 ) );
 
 				// Set current content
-				setContent( conversionApi.writer, data.attributeNewValue, viewElement );*/
+				setContent( conversionApi.viewWriter, data.attributeNewValue, viewElement );*/
 			} );
 		} );
 

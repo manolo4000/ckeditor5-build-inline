@@ -55,7 +55,7 @@ export function viewFigureToModel() {
 		}
 
 		// Convert rest of the figure element's children as an image children.
-		conversionApi.convertChildren( data.viewItem, conversionApi.writer.createPositionAt( modelImage, 0 ) );
+		conversionApi.convertChildren( data.viewItem, conversionApi.viewWriter.createPositionAt( modelImage, 0 ) );
 
 		// Set image range as conversion result.
 		data.modelRange = conversionResult.modelRange;
@@ -80,7 +80,7 @@ export function srcsetAttributeConverter() {
 			return;
 		}
 
-		const writer = conversionApi.writer;
+		const writer = conversionApi.viewWriter;
 		const figure = conversionApi.mapper.toViewElement( data.item );
 		const img = getViewImgFromWidget( figure );
 
@@ -121,7 +121,7 @@ export function modelToViewAttributeConverter( attributeKey ) {
 			return;
 		}
 
-		const viewWriter = conversionApi.writer;
+		const viewWriter = conversionApi.viewWriter;
 		const figure = conversionApi.mapper.toViewElement( data.item );
 		const img = getViewImgFromWidget( figure );
 

@@ -27,7 +27,7 @@ export function modelToViewStyleAttribute( styles ) {
 		const oldStyle = getStyleByName( data.attributeOldValue, styles );
 
 		const viewElement = conversionApi.mapper.toViewElement( data.item );
-		const viewWriter = conversionApi.writer;
+		const viewWriter = conversionApi.viewWriter;
 
 		if ( oldStyle ) {
 			viewWriter.removeClass( oldStyle.className, viewElement );
@@ -67,7 +67,7 @@ export function viewToModelStyleAttribute( styles ) {
 			// Try to consume class corresponding with style.
 			if ( conversionApi.consumable.consume( viewFigureElement, { classes: style.className } ) ) {
 				// And convert this style to model attribute.
-				conversionApi.writer.setAttribute( 'imageStyle', style.name, modelImageElement );
+				conversionApi.viewWriter.setAttribute( 'imageStyle', style.name, modelImageElement );
 			}
 		}
 	};

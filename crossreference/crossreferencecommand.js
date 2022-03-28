@@ -6,18 +6,18 @@ export default class CrossreferenceCommand extends Command {
 
 		editor.model.change( writer => {
 			// Create a <placeholder> elment with the "name" attribute...
-			const crossreference = writer.createElement( 'crossreference', { reference: value } );
+			const crossreference = writer.writter.createElement( 'crossreference', { reference: value } );
 
 			// ... and insert it into the document.
 			editor.model.insertContent( crossreference );
 
 			// Put the selection on the inserted element.
-			writer.setSelection( crossreference, 'on' );
+			writer.writter.setSelection( crossreference, 'on' );
 
 			const nodes = this.findNodes( writer, 'crossreference', editor.model.document.getRoot() );
 
 			nodes.forEach( ( node, idx ) => {
-				writer.setAttribute( 'index', idx + 1, node );
+				writer.writter.setAttribute( 'index', idx + 1, node );
 			} );
 		} );
 	}
@@ -46,7 +46,7 @@ export default class CrossreferenceCommand extends Command {
 		editor.model.change( writer => {
 			const nodes = this.findNodes( writer, 'crossreference', editor.model.document.getRoot() );
 			nodes.forEach( ( node, idx ) => {
-				writer.setAttribute( 'index', idx + 1, node );
+				writer.writter.setAttribute( 'index', idx + 1, node );
 			} );
 		} );
 	}
@@ -54,7 +54,7 @@ export default class CrossreferenceCommand extends Command {
 	findNodes( writer, type, root ) {
 		type = type || 'crossreference';
 		const nodes = [];
-		const range = writer.createRangeIn( root );
+		const range = writer.writter.createRangeIn( root );
 
 		for ( const value of range.getWalker( { ignoreElementEnd: true } ) ) {
 			const node = value.item;

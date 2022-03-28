@@ -107,11 +107,14 @@ export default class CrossreferenceEditing extends Plugin {
 		// Helper method for both downcast converters.
 		function createCrossreferenceView( modelItem, viewWriter ) {
 			const reference = modelItem.getAttribute( 'reference' );
-			const index = modelItem.getAttribute( 'index' );
+			//const index = modelItem.getAttribute( 'index' );
+			const child = modelItem.getChild( 0 );
+			const index = child ? child.data.slice( 1, -1 ) : 1;
 
 			const crossreferenceView = viewWriter.writer.createContainerElement( 'a', {
 				class: 'crossreference',
-				title: reference
+				title: reference,
+				index: index
 			} );
 
 			// const innerText = viewWriter.writer.createText( '[' + index + ']' );

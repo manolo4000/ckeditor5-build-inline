@@ -117,11 +117,11 @@ export default class ImageResize extends Plugin {
 				const figure = conversionApi.mapper.toViewElement( data.item );
 
 				if ( data.attributeNewValue !== null ) {
-					viewWriter.setStyle( 'width', data.attributeNewValue, figure );
-					viewWriter.addClass( 'image_resized', figure );
+					viewWriter.writer.writer.setStyle( 'width', data.attributeNewValue, figure );
+					viewWriter.writer.writer.addClass( 'image_resized', figure );
 				} else {
-					viewWriter.removeStyle( 'width', figure );
-					viewWriter.removeClass( 'image_resized', figure );
+					viewWriter.writer.writer.removeStyle( 'width', figure );
+					viewWriter.writer.writer.removeClass( 'image_resized', figure );
 				}
 			} )
 		);

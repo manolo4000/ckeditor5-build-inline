@@ -30,11 +30,11 @@ export function modelToViewStyleAttribute( styles ) {
 		const viewWriter = conversionApi.viewWriter;
 
 		if ( oldStyle ) {
-			viewWriter.removeClass( oldStyle.className, viewElement );
+			viewWriter.writer.writer.removeClass( oldStyle.className, viewElement );
 		}
 
 		if ( newStyle ) {
-			viewWriter.addClass( newStyle.className, viewElement );
+			viewWriter.writer.writer.addClass( newStyle.className, viewElement );
 		}
 	};
 }
@@ -67,7 +67,7 @@ export function viewToModelStyleAttribute( styles ) {
 			// Try to consume class corresponding with style.
 			if ( conversionApi.consumable.consume( viewFigureElement, { classes: style.className } ) ) {
 				// And convert this style to model attribute.
-				conversionApi.viewWriter.setAttribute( 'imageStyle', style.name, modelImageElement );
+				conversionApi.viewWriter.writer.writer.setAttribute( 'imageStyle', style.name, modelImageElement );
 			}
 		}
 	};

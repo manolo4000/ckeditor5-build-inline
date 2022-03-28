@@ -55,7 +55,7 @@ export function viewFigureToModel() {
 		}
 
 		// Convert rest of the figure element's children as an image children.
-		conversionApi.convertChildren( data.viewItem, conversionApi.viewWriter.createPositionAt( modelImage, 0 ) );
+		conversionApi.convertChildren( data.viewItem, conversionApi.viewWriter.writer.writer.createPositionAt( modelImage, 0 ) );
 
 		// Set image range as conversion result.
 		data.modelRange = conversionResult.modelRange;
@@ -126,9 +126,9 @@ export function modelToViewAttributeConverter( attributeKey ) {
 		const img = getViewImgFromWidget( figure );
 
 		if ( data.attributeNewValue !== null ) {
-			viewWriter.setAttribute( data.attributeKey, data.attributeNewValue, img );
+			viewWriter.writer.writer.setAttribute( data.attributeKey, data.attributeNewValue, img );
 		} else {
-			viewWriter.removeAttribute( data.attributeKey, img );
+			viewWriter.writer.writer.removeAttribute( data.attributeKey, img );
 		}
 	}
 }

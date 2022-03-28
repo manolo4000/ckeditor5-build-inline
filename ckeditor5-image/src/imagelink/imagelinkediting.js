@@ -164,9 +164,9 @@ export default class ImageLinkEditing extends Plugin {
 
 				if ( viewLink ) {
 					if ( modelLink.childCount ) {
-						viewWriter.removeClass( 'ck-hidden', viewLink );
+						viewWriter.writer.writer.removeClass( 'ck-hidden', viewLink );
 					} else {
-						viewWriter.addClass( 'ck-hidden', viewLink );
+						viewWriter.writer.writer.addClass( 'ck-hidden', viewLink );
 					}
 				}
 			}
@@ -240,7 +240,7 @@ function linkModelToView( elementCreator, hide = true ) {
 
 			// Hide if empty.
 			if ( !linkElement.childCount ) {
-				viewWriter.addClass( 'ck-hidden', viewLink );
+				viewWriter.writer.writer.addClass( 'ck-hidden', viewLink );
 			}
 
 			insertViewLinkAndBind( viewLink, data.item, viewImage, conversionApi );
@@ -256,9 +256,9 @@ function linkModelToView( elementCreator, hide = true ) {
 // @param {module:engine/view/containerelement~ContainerElement} viewImage
 // @param {module:engine/conversion/downcastdispatcher~DowncastConversionApi} conversionApi
 function insertViewLinkAndBind( viewLink, modelLink, viewImage, conversionApi ) {
-	const viewPosition = conversionApi.viewWriter.createPositionAt( viewImage, 'end' );
+	const viewPosition = conversionApi.viewWriter.writer.writer.createPositionAt( viewImage, 'end' );
 
-	conversionApi.viewWriter.insert( viewPosition, viewLink );
+	conversionApi.viewWriter.writer.writer.insert( viewPosition, viewLink );
 	conversionApi.mapper.bindElements( modelLink, viewLink );
 }
 
@@ -286,7 +286,7 @@ function getParentLink( node ) {
 // @returns {Boolean} Returns `true` if the view was modified.
 function hideLinkIfEmpty( link, viewWriter ) {
 	if ( !link.childCount && !link.hasClass( 'ck-hidden' ) ) {
-		viewWriter.addClass( 'ck-hidden', link );
+		viewWriter.writer.writer.addClass( 'ck-hidden', link );
 		return true;
 	}
 
@@ -301,7 +301,7 @@ function hideLinkIfEmpty( link, viewWriter ) {
 // @returns {Boolean} Returns `true` if the view was modified.
 function showLink( link, viewWriter ) {
 	if ( link.hasClass( 'ck-hidden' ) ) {
-		viewWriter.removeClass( 'ck-hidden', link );
+		viewWriter.writer.writer.removeClass( 'ck-hidden', link );
 		return true;
 	}
 

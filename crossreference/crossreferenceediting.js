@@ -69,11 +69,11 @@ export default class CrossreferenceEditing extends Plugin {
 
 		conversion.for( 'editingDowncast' ).elementToElement( {
 			model: 'crossreference',
-			view: ( modelItem, viewWriter ) => {
-				const widgetElement = createCrossreferenceView( modelItem, viewWriter );
+			view: ( modelItem, writer ) => {
+				const widgetElement = createCrossreferenceView( modelItem, writer );
 
 				// Enable widget handling on a placeholder element inside the editing view.
-				return toWidget( widgetElement, viewWriter );
+				return toWidget( widgetElement, writer.writer );
 			}
 		} ).add( dispatcher => {
 			// Specify converter for attribute `text` on element `dailyNote`.
@@ -87,7 +87,7 @@ export default class CrossreferenceEditing extends Plugin {
 				const viewElement = conversionApi.mapper.toViewElement( element );
 
 				// Remove current <div> element contents.
-				conversionApi.viewWriter.remove( viewElement.getChild( 0 ) );
+				conversionApi.viewWriter.writer.remove( viewElement.getChild( 0 ) );
 
 				// Set current content
 				setContent( conversionApi.viewWriter, data.attributeNewValue, viewElement );
@@ -100,8 +100,8 @@ export default class CrossreferenceEditing extends Plugin {
 		} );
 
 		function setContent( viewWriter, index, crossreferenceView ) {
-			const innerText = viewWriter.createText( String(index) );
-			viewWriter.insert( viewWriter.createPositionAt( crossreferenceView, 0 ), innerText );
+			const innerText = viewWriter.writer.createText( String(index) );
+			viewWriter.writer.insert( viewWriter.writer.createPositionAt( crossreferenceView, 0 ), innerText );
 		}
 
 		// Helper method for both downcast converters.
@@ -109,13 +109,13 @@ export default class CrossreferenceEditing extends Plugin {
 			const reference = modelItem.getAttribute( 'reference' );
 			const index = modelItem.getAttribute( 'index' );
 
-			const crossreferenceView = viewWriter.createContainerElement( 'a', {
+			const crossreferenceView = viewWriter.writer.createContainerElement( 'a', {
 				class: 'crossreference',
 				title: reference
 			} );
 
-			// const innerText = viewWriter.createText( '[' + index + ']' );
-			// viewWriter.insert( viewWriter.createPositionAt( crossreferenceView, 0 ), innerText );
+			// const innerText = viewWriter.writer.createText( '[' + index + ']' );
+			// viewWriter.writer.insert( viewWriter.writer.createPositionAt( crossreferenceView, 0 ), innerText );
 			setContent( viewWriter, index, crossreferenceView );
 
 			return crossreferenceView;

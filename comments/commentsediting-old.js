@@ -85,7 +85,7 @@ export default class CommentsEditing extends Plugin {
 				const viewElement = conversionApi.mapper.toViewElement( element );
 
 				// Remove current <div> element contents.
-				conversionApi.viewWriter.remove( viewElement.getChild( 0 ) );
+				conversionApi.viewWriter.writer.writer.remove( viewElement.getChild( 0 ) );
 
 				// Set current content
 				setContent( conversionApi.viewWriter, data.attributeNewValue, viewElement );*/
@@ -98,8 +98,8 @@ export default class CommentsEditing extends Plugin {
 		} );
 
 		function setContent( viewWriter, data, commentView ) {
-			const innerText = viewWriter.createText( String(data) );
-			viewWriter.insert( viewWriter.createPositionAt( commentView, 0 ), innerText );
+			const innerText = viewWriter.writer.writer.createText( String(data) );
+			viewWriter.writer.writer.insert( viewWriter.writer.writer.createPositionAt( commentView, 0 ), innerText );
 		}
 
 		// Helper method for both downcast converters.
@@ -108,13 +108,13 @@ export default class CommentsEditing extends Plugin {
 			const data = modelItem.getAttribute( 'data' );
 
 			debugger
-			const commentView = viewWriter.createEditableElement( 'div', {
+			const commentView = viewWriter.writer.writer.createEditableElement( 'div', {
 				class: 'comment',
 				id
 			} );
 
-			// const innerText = viewWriter.createText( '[' + index + ']' );
-			// viewWriter.insert( viewWriter.createPositionAt( crossreferenceView, 0 ), innerText );
+			// const innerText = viewWriter.writer.writer.createText( '[' + index + ']' );
+			// viewWriter.writer.writer.insert( viewWriter.writer.writer.createPositionAt( crossreferenceView, 0 ), innerText );
 			setContent( viewWriter, 'hello', commentView );
 
 			return commentView;

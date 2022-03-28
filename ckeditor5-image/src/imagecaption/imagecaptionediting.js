@@ -164,9 +164,9 @@ export default class ImageCaptionEditing extends Plugin {
 
 				if ( viewCaption ) {
 					if ( modelCaption.childCount ) {
-						viewWriter.removeClass( 'ck-hidden', viewCaption );
+						viewWriter.writer.writer.removeClass( 'ck-hidden', viewCaption );
 					} else {
-						viewWriter.addClass( 'ck-hidden', viewCaption );
+						viewWriter.writer.writer.addClass( 'ck-hidden', viewCaption );
 					}
 				}
 			}
@@ -240,7 +240,7 @@ function captionModelToView( elementCreator, hide = true ) {
 
 			// Hide if empty.
 			if ( !captionElement.childCount ) {
-				viewWriter.addClass( 'ck-hidden', viewCaption );
+				viewWriter.writer.writer.addClass( 'ck-hidden', viewCaption );
 			}
 
 			insertViewCaptionAndBind( viewCaption, data.item, viewImage, conversionApi );
@@ -256,9 +256,9 @@ function captionModelToView( elementCreator, hide = true ) {
 // @param {module:engine/view/containerelement~ContainerElement} viewImage
 // @param {module:engine/conversion/downcastdispatcher~DowncastConversionApi} conversionApi
 function insertViewCaptionAndBind( viewCaption, modelCaption, viewImage, conversionApi ) {
-	const viewPosition = conversionApi.viewWriter.createPositionAt( viewImage, 'end' );
+	const viewPosition = conversionApi.viewWriter.writer.writer.createPositionAt( viewImage, 'end' );
 
-	conversionApi.viewWriter.insert( viewPosition, viewCaption );
+	conversionApi.viewWriter.writer.writer.insert( viewPosition, viewCaption );
 	conversionApi.mapper.bindElements( modelCaption, viewCaption );
 }
 
@@ -286,7 +286,7 @@ function getParentCaption( node ) {
 // @returns {Boolean} Returns `true` if the view was modified.
 function hideCaptionIfEmpty( caption, viewWriter ) {
 	if ( !caption.childCount && !caption.hasClass( 'ck-hidden' ) ) {
-		viewWriter.addClass( 'ck-hidden', caption );
+		viewWriter.writer.writer.addClass( 'ck-hidden', caption );
 		return true;
 	}
 
@@ -301,7 +301,7 @@ function hideCaptionIfEmpty( caption, viewWriter ) {
 // @returns {Boolean} Returns `true` if the view was modified.
 function showCaption( caption, viewWriter ) {
 	if ( caption.hasClass( 'ck-hidden' ) ) {
-		viewWriter.removeClass( 'ck-hidden', caption );
+		viewWriter.writer.writer.removeClass( 'ck-hidden', caption );
 		return true;
 	}
 

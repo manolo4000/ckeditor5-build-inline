@@ -89,7 +89,7 @@ export default class CommentsEditing extends Plugin {
 		const editor = this.editor;
 
 		// Allow comments attribute on text nodes.
-		editor.model.schema.extend( '$text', { allowAttributes: [ 'comments', 'commentId' ] } );
+		editor.model.schema.extend( '$text', { allowAttributes: [ 'comments', 'commentId', 'commentClass' ] } );
 
 		const options = editor.config.get( 'comments.options' );
 
@@ -101,18 +101,42 @@ export default class CommentsEditing extends Plugin {
 			view: {
 				name: 'mark',
 				key: 'comment-id',
-				class: 'mark-solved'
+			},
+			converterPriority: 'low'
+		} );
+
+		editor.conversion.attributeToAttribute( {
+			model: {
+				name: 'comments',
+				key: 'commentClass'
+			},
+			view: {
+				name: 'mark',
+				key: 'class',
 			},
 			converterPriority: 'low'
 		} );
 
 		editor.conversion.for( 'downcast' ).attributeToElement( {
 			model: {
-				key: 'commentId',
-				name: '$text'
+				name: '$text',
+				key: 'commentId'
 			},
 			view: ( value, writer ) => {
-				return writer.writer.createAttributeElement( 'mark', { 'comment-id': value, 'class': 'mark-solved' } );
+				debugger;
+				return writer.writer.createAttributeElement( 'mark', { 'comment-id': value } );
+			},
+			converterPriority: 'high'
+		} );
+
+		editor.conversion.for( 'downcast' ).attributeToElement( {
+			model: {
+				name: '$text',
+				key: 'commentClass'
+			},
+			view: ( value, writer ) => {
+				debugger;
+				return writer.writer.createAttributeElement( 'mark', { 'class': value } );
 			},
 			converterPriority: 'high'
 		} );

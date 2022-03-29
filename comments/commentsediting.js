@@ -111,7 +111,7 @@ export default class CommentsEditing extends Plugin {
 				name: '$text'
 			},
 			view: ( value, writer ) => {
-				return writer.createAttributeElement( 'mark', { 'comment-id': value } );
+				return writer.writer.createAttributeElement( 'mark', { 'comment-id': value } );
 			},
 			converterPriority: 'high'
 		} );

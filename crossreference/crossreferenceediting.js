@@ -57,11 +57,11 @@ export default class CrossreferenceEditing extends Plugin {
 				name: 'a',
 				classes: [ 'crossreference' ]
 			},
-			model: ( viewElement, modelWriter ) => {
+			model: ( element, modelWriter ) => {
 				// Extract the "name" from "{name}".
-				const child = viewElement.getChild( 0 );
+				const child = element.getChild( 0 );
 				const index = child ? child.data.slice( 1, -1 ) : 1;
-				const reference = viewElement.getAttribute( 'title' );
+				const reference = element.getAttribute( 'title' );
 
 				return modelWriter.createElement( 'crossreference', { reference, index } );
 			}

@@ -100,7 +100,8 @@ export default class CommentsEditing extends Plugin {
 			},
 			view: {
 				name: 'mark',
-				key: 'comment-id'
+				key: 'comment-id',
+				class: 'mark-solved'
 			},
 			converterPriority: 'low'
 		} );

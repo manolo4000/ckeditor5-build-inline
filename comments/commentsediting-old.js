@@ -61,7 +61,7 @@ export default class CommentsEditing extends Plugin {
 				const data = child ? child.data : '';
 				const id = viewElement.getAttribute( 'id' );
 
-				return modelWriter.createElement( 'comments', { id, data: viewElement } );
+				return modelWriter.writer.createElement( 'comments', { id, data: viewElement } );
 			}
 		} );
 

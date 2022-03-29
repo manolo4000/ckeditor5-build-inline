@@ -5,6 +5,7 @@ export default class CrossreferenceCommand extends Command {
 		const editor = this.editor;
 
 		editor.model.change( writer => {
+			debugger;
 			// Create a <placeholder> elment with the "name" attribute...
 			const crossreference = writer.createElement( 'crossreference', { reference: value } );
 

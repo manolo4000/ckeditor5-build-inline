@@ -157,7 +157,7 @@ export default class ImageLinkEditing extends Plugin {
 			const node = nodeFinder( data );
 			const modelLink = getParentLink( node );
 			const mapper = this.editor.editing.mapper;
-			const viewWriter = conversionApi.viewWriter;
+			const viewWriter = conversionApi.writer;
 
 			if ( modelLink ) {
 				const viewLink = mapper.toViewElement( modelLink );
@@ -235,8 +235,8 @@ function linkModelToView( elementCreator, hide = true ) {
 			}
 
 			const viewImage = conversionApi.mapper.toViewElement( data.range.start.parent );
-			const viewLink = elementCreator( conversionApi.viewWriter );
-			const viewWriter = conversionApi.viewWriter;
+			const viewLink = elementCreator( conversionApi.writer );
+			const viewWriter = conversionApi.writer;
 
 			// Hide if empty.
 			if ( !linkElement.childCount ) {
@@ -256,9 +256,9 @@ function linkModelToView( elementCreator, hide = true ) {
 // @param {module:engine/view/containerelement~ContainerElement} viewImage
 // @param {module:engine/conversion/downcastdispatcher~DowncastConversionApi} conversionApi
 function insertViewLinkAndBind( viewLink, modelLink, viewImage, conversionApi ) {
-	const viewPosition = conversionApi.viewWriter.writer.writer.createPositionAt( viewImage, 'end' );
+	const viewPosition = conversionApi.writer.writer.writer.createPositionAt( viewImage, 'end' );
 
-	conversionApi.viewWriter.writer.writer.insert( viewPosition, viewLink );
+	conversionApi.writer.writer.writer.insert( viewPosition, viewLink );
 	conversionApi.mapper.bindElements( modelLink, viewLink );
 }
 

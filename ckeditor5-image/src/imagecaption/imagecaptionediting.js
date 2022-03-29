@@ -157,7 +157,7 @@ export default class ImageCaptionEditing extends Plugin {
 			const node = nodeFinder( data );
 			const modelCaption = getParentCaption( node );
 			const mapper = this.editor.editing.mapper;
-			const viewWriter = conversionApi.viewWriter;
+			const viewWriter = conversionApi.writer;
 
 			if ( modelCaption ) {
 				const viewCaption = mapper.toViewElement( modelCaption );
@@ -235,8 +235,8 @@ function captionModelToView( elementCreator, hide = true ) {
 			}
 
 			const viewImage = conversionApi.mapper.toViewElement( data.range.start.parent );
-			const viewCaption = elementCreator( conversionApi.viewWriter );
-			const viewWriter = conversionApi.viewWriter;
+			const viewCaption = elementCreator( conversionApi.writer );
+			const viewWriter = conversionApi.writer;
 
 			// Hide if empty.
 			if ( !captionElement.childCount ) {
@@ -256,9 +256,9 @@ function captionModelToView( elementCreator, hide = true ) {
 // @param {module:engine/view/containerelement~ContainerElement} viewImage
 // @param {module:engine/conversion/downcastdispatcher~DowncastConversionApi} conversionApi
 function insertViewCaptionAndBind( viewCaption, modelCaption, viewImage, conversionApi ) {
-	const viewPosition = conversionApi.viewWriter.writer.writer.createPositionAt( viewImage, 'end' );
+	const viewPosition = conversionApi.writer.writer.writer.createPositionAt( viewImage, 'end' );
 
-	conversionApi.viewWriter.writer.writer.insert( viewPosition, viewCaption );
+	conversionApi.writer.writer.writer.insert( viewPosition, viewCaption );
 	conversionApi.mapper.bindElements( modelCaption, viewCaption );
 }
 

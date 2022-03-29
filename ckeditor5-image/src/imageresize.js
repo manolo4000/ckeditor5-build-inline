@@ -113,7 +113,7 @@ export default class ImageResize extends Plugin {
 					return;
 				}
 
-				const viewWriter = conversionApi.viewWriter;
+				const viewWriter = conversionApi.writer;
 				const figure = conversionApi.mapper.toViewElement( data.item );
 
 				if ( data.attributeNewValue !== null ) {

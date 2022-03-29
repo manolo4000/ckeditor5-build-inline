@@ -45,7 +45,7 @@ export default class CrossreferenceEditing extends Plugin {
 			isObject: true,
 
 			// The placeholder can have many types, like date, name, surname, etc:
-			allowAttributes: [ 'reference' ]
+			allowAttributes: [ 'reference', 'index' ]
 		} );
 	}
 
@@ -62,7 +62,7 @@ export default class CrossreferenceEditing extends Plugin {
 				const child = element.getChild( 0 );
 				const index = child ? child.data.slice( 1, -1 ) : 1;
 				const reference = element.getAttribute( 'title' );
-				return modelWriter.createElement( 'crossreference', { reference, index } );
+				return modelWriter.writer.createElement( 'crossreference', { reference, index } );
 			}
 		} );
 
@@ -86,10 +86,10 @@ export default class CrossreferenceEditing extends Plugin {
 				const viewElement = conversionApi.mapper.toViewElement( element );
 
 				// Remove current <div> element contents.
-				conversionApi.viewWriter.writer.remove( viewElement.getChild( 0 ) );
+				conversionApi.writer.remove( viewElement.getChild( 0 ) );
 
 				// Set current content
-				setContent( conversionApi.viewWriter, data.attributeNewValue, viewElement );
+				setContent( conversionApi, data.attributeNewValue, viewElement );
 			} );
 		} );
 
@@ -98,9 +98,9 @@ export default class CrossreferenceEditing extends Plugin {
 			view: createCrossreferenceView
 		} );
 
-		function setContent( viewWriter, index, crossreferenceView ) {
-			const innerText = viewWriter.writer.createText( String(index) );
-			viewWriter.writer.insert( viewWriter.writer.createPositionAt( crossreferenceView, 0 ), innerText );
+		function setContent( conversionApi, index, crossreferenceView ) {
+			const innerText = conversionApi.writer.createText( String(index) );
+			conversionApi.writer.insert( conversionApi.writer.createPositionAt( crossreferenceView, 0 ), innerText );
 		}
 
 		// Helper method for both downcast converters.

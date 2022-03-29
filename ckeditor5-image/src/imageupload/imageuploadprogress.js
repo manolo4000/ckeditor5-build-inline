@@ -71,7 +71,7 @@ export default class ImageUploadProgress extends Plugin {
 		const status = uploadId ? data.attributeNewValue : null;
 		const placeholder = this.placeholder;
 		const viewFigure = editor.editing.mapper.toViewElement( modelImage );
-		const viewWriter = conversionApi.viewWriter;
+		const viewWriter = conversionApi.writer;
 
 		if ( status == 'reading' ) {
 			// Start "appearing" effect and show placeholder with infinite progress bar on the top

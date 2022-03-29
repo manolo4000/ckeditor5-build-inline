@@ -128,6 +128,7 @@ export default class CommentsEditing extends Plugin {
 // @param {Array.<module:comments/comments~CommentsOption>} options An array with configured options.
 // @returns {module:engine/conversion/conversion~ConverterDefinition}
 function _buildDefinition( options ) {
+	debugger;
 	const definition = {
 		model: {
 			key: 'comments',

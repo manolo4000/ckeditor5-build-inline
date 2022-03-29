@@ -62,7 +62,7 @@ export default class CrossreferenceEditing extends Plugin {
 				const child = element.getChild( 0 );
 				const index = child ? child.data.slice( 1, -1 ) : 1;
 				const reference = element.getAttribute( 'title' );
-				return modelWriter.writer.createElement( 'crossreference', { reference, index } );
+				return modelWriter.createElement( 'crossreference', { reference, index } );
 			}
 		} );
 

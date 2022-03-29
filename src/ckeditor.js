@@ -113,7 +113,7 @@ InlineEditor.builtinPlugins = [
 	TableToolbar,
 	TextTransformation,
 	Crossreference,
-	//Comments
+	Comments
 ];
 
 // Editor configuration.

@@ -2,10 +2,10 @@ import Command from '@ckeditor/ckeditor5-core/src/command';
 
 export default class CrossreferenceCommand extends Command {
 	execute( { value } ) {
+		debugger;
 		const editor = this.editor;
 
 		editor.model.change( writer => {
-			debugger;
 			// Create a <placeholder> elment with the "name" attribute...
 			const crossreference = writer.createElement( 'crossreference', { reference: value } );
 
@@ -26,7 +26,7 @@ export default class CrossreferenceCommand extends Command {
 	getSelectedReferenceModelWidget( selection ) {
 		const selectedElement = selection.getSelectedElement();
 
-		if ( selectedElement && selectedElement.is( 'crossreference' ) ) {
+		if ( selectedElement && selectedElement.name == 'crossreference') {
 			return selectedElement;
 		}
 
@@ -60,7 +60,7 @@ export default class CrossreferenceCommand extends Command {
 		for ( const value of range.getWalker( { ignoreElementEnd: true } ) ) {
 			const node = value.item;
 
-			if ( node.is( type ) ) {
+			if ( node.name == type ) {
 				nodes.push( node );
 			}
 		}

@@ -45,7 +45,7 @@ export default class CrossreferenceEditing extends Plugin {
 			isObject: true,
 
 			// The placeholder can have many types, like date, name, surname, etc:
-			allowAttributes: [ 'reference', 'index' ]
+			allowAttributes: [ 'reference' ]
 		} );
 	}
 
@@ -57,22 +57,23 @@ export default class CrossreferenceEditing extends Plugin {
 				name: 'a',
 				classes: [ 'crossreference' ]
 			},
-			model: ( element, modelWriter ) => {
+			model: ( viewElement, modelWriter ) => {
 				// Extract the "name" from "{name}".
-				const child = element.getChild( 0 );
+				const child = viewElement.getChild( 0 );
 				const index = child ? child.data.slice( 1, -1 ) : 1;
-				const reference = element.getAttribute( 'title' );
-				return modelWriter.writer.createElement( 'crossreference', { reference, index } );
+				const reference = viewElement.getAttribute( 'title' );
+
+				return modelWriter.createElement( 'crossreference', { reference, index } );
 			}
 		} );
 
 		conversion.for( 'editingDowncast' ).elementToElement( {
 			model: 'crossreference',
-			view: ( modelItem, writer ) => {
-				const widgetElement = createCrossreferenceView( modelItem, writer );
+			view: ( modelItem, viewWriter ) => {
+				const widgetElement = createCrossreferenceView( modelItem, viewWriter.writer );
 
 				// Enable widget handling on a placeholder element inside the editing view.
-				return toWidget( widgetElement, writer.writer );
+				return toWidget( widgetElement, viewWriter.writer );
 			}
 		} ).add( dispatcher => {
 			// Specify converter for attribute `text` on element `dailyNote`.
@@ -89,7 +90,7 @@ export default class CrossreferenceEditing extends Plugin {
 				conversionApi.writer.remove( viewElement.getChild( 0 ) );
 
 				// Set current content
-				setContent( conversionApi, data.attributeNewValue, viewElement );
+				setContent( conversionApi.writer, data.attributeNewValue, viewElement );
 			} );
 		} );
 
@@ -98,9 +99,9 @@ export default class CrossreferenceEditing extends Plugin {
 			view: createCrossreferenceView
 		} );
 
-		function setContent( conversionApi, index, crossreferenceView ) {
-			const innerText = conversionApi.writer.createText( String(index) );
-			conversionApi.writer.insert( conversionApi.writer.createPositionAt( crossreferenceView, 0 ), innerText );
+		function setContent( viewWriter, index, crossreferenceView ) {
+			const innerText = viewWriter.createText( String(index) );
+			viewWriter.insert( viewWriter.createPositionAt( crossreferenceView, 0 ), innerText );
 		}
 
 		// Helper method for both downcast converters.
@@ -108,13 +109,13 @@ export default class CrossreferenceEditing extends Plugin {
 			const reference = modelItem.getAttribute( 'reference' );
 			const index = modelItem.getAttribute( 'index' );
 
-			const crossreferenceView = viewWriter.writer.createContainerElement( 'a', {
+			const crossreferenceView = viewWriter.createContainerElement( 'a', {
 				class: 'crossreference',
 				title: reference
 			} );
 
-			// const innerText = viewWriter.writer.createText( '[' + index + ']' );
-			// viewWriter.writer.insert( viewWriter.writer.createPositionAt( crossreferenceView, 0 ), innerText );
+			// const innerText = viewWriter.createText( '[' + index + ']' );
+			// viewWriter.insert( viewWriter.createPositionAt( crossreferenceView, 0 ), innerText );
 			setContent( viewWriter, index, crossreferenceView );
 
 			return crossreferenceView;
